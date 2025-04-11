@@ -1,10 +1,9 @@
 # Initially taken from GitHub's Python gitignore file
 phase_1_ckpt/
-outputs/
 run_sh/
 ckpt/
-ttf/
 ckt/
+evaluate/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -184,9 +183,6 @@ wandb
 # === Custom project-specific ignore ===
 
 # 保留空資料夾但忽略內容
-evaluate/*
-!evaluate/.gitkeep
-
 outputs_generater_character_list/*
 !outputs_generater_character_list/.gitkeep
 
@@ -194,7 +190,8 @@ outputs/*
 !outputs/.gitkeep
 
 # 完全排除 ttf 資料夾（不保留）
-ttf/
+ttf/*
+!ttf/NotoSansTC-Thin.ttf
 
 # split_train_test：只保留特定檔案與資料夾
 split_train_test/*
