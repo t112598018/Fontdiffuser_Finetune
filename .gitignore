@@ -198,3 +198,14 @@ split_train_test/*
 !split_train_test/colab_split_data.py
 !split_train_test/Noto_Sans_TC_JPG/
 
+# 忽略整個 train 資料夾（包含資料夾本身與所有內容）
+data_examples/train/
+
+# 忽略 sampling 資料夾內的所有內容
+data_examples/sampling/*
+
+# 但保留 sampling 資料夾本身（需要裡面有個空檔案）
+!data_examples/sampling/.gitkeep
+
+
+
