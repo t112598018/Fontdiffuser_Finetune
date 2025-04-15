@@ -195,8 +195,6 @@ ttf/*
 
 # split_train_test：只保留特定檔案與資料夾
 split_train_test/*
-!split_train_test/split_train_test.py
-!split_train_test/train.txt
-!split_train_test/test.txt
+!split_train_test/colab_split_data.py
 !split_train_test/Noto_Sans_TC_JPG/
 
