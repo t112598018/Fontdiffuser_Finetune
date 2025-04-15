@@ -266,7 +266,10 @@ def main():
                         print("Save the checkpoint on global step {}".format(global_step))
                         if args.usecolab:
                             import shutil
-                            shutil.copy(f"{args.output_dir}/global_step_{global_step}", f"/content/drive/MyDrive/Fontdiffuser_finetuning_ckpt/global_step_{global_step}")
+                            shutil.copytree(f"{args.output_dir}/global_step_{global_step}",
+                                            f"/content/drive/MyDrive/Fontdiffuser_finetuning_ckpt/global_step_{global_step}",
+                                            dirs_exist_ok=True)
+
 
 
             logs = {"step_loss": loss.detach().item(), "lr": lr_scheduler.get_last_lr()[0]}
