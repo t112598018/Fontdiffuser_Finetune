@@ -3,7 +3,7 @@ import shutil
 import random
 
 # 由使用者輸入來源資料夾參數（例如：112598018）
-folder_param = input("請輸入來源資料夾參數 (例如 112598018): ").strip()
+folder_param = input("請輸入來源資料夾 (例如 112598018): ").strip()
 
 # 定義來源資料夾與目標資料夾
 source_dir1 = folder_param
