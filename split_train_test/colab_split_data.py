@@ -82,3 +82,13 @@ for char in selected_chars:
     shutil.copy2(source_path2, target_path2)
 
 print("檔案複製與重新命名完成！")
+# 最後將整個 train 資料夾複製到指定位置
+final_target = "/content/Fontdiffuser/data_examples/train"
+
+# 如果目標路徑已存在，先刪除再複製（避免 copytree 發生錯誤）
+if os.path.exists(final_target):
+    shutil.rmtree(final_target)
+
+shutil.copytree("train", final_target)
+
+print(f"train 資料夾已成功複製到：{final_target}")
