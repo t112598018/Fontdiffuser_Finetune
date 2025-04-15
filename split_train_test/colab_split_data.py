@@ -67,6 +67,11 @@ select_count = min(800, len(common_chars))
 selected_chars = random.sample(common_chars, select_count)
 print("隨機挑選的中文檔案:", selected_chars)
 
+# 👉 紀錄檔案名到文字檔
+with open("train.txt", "w", encoding="utf-8") as f:
+    for char in selected_chars:
+        f.write(f"{char}\n")
+
 # 依據挑選結果進行檔案複製與重新命名
 for char in selected_chars:
     # 處理來源目錄1，目標檔名格式: 輸入參數+漢字.jpg
@@ -92,3 +97,11 @@ if os.path.exists(final_target):
 shutil.copytree("train", final_target)
 
 print(f"train 資料夾已成功複製到：{final_target}")
+
+
+# 複製一份到 Google Drive 的指定資料夾
+drive_path = "/content/drive/MyDrive/Fontdiffuser_finetuning_ckpt"
+os.makedirs(drive_path, exist_ok=True)  # 若該資料夾不存在就建立
+shutil.copy("train.txt", os.path.join(drive_path, "train.txt"))
+
+print(f"已將 train.txt 複製到：{drive_path}")
