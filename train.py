@@ -33,6 +33,8 @@ logger = get_logger(__name__)
 
 def get_args():
     parser = get_parser()
+    parser.add_argument("--usecolab", action="store_true", 
+                    help="Use this flag if running in Google Colab. If omitted, assumes local execution.")
     args = parser.parse_args()
     env_local_rank = int(os.environ.get("LOCAL_RANK", -1))
     if env_local_rank != -1 and env_local_rank != args.local_rank:
@@ -262,6 +264,10 @@ def main():
                         torch.save(model, f"{save_dir}/total_model.pth")
                         logging.info(f"[{time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))}] Save the checkpoint on global step {global_step}")
                         print("Save the checkpoint on global step {}".format(global_step))
+                        if args.usecolab:
+                            import shutil
+                            shutil.copy(f"{args.output_dir}/global_step_{global_step}", f"/content/drive/MyDrive/Fontdiffuser_finetuning_ckpt/global_step_{global_step}")
+
 
             logs = {"step_loss": loss.detach().item(), "lr": lr_scheduler.get_last_lr()[0]}
             if global_step % args.log_interval == 0:
