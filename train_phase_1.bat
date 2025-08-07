@@ -1,9 +1,9 @@
 @echo off
 accelerate launch train.py ^
     --seed=123 ^
-    --experience_name="FontDiffuser_110598080_fineturning" ^
+    --experience_name="FontDiffuser_Finetune" ^
     --data_root="data_examples" ^
-    --output_dir="outputs/FontDiffuser_110598080_fineturning" ^
+    --output_dir="outputs/FontDiffuser_Finetune" ^
     --report_to="tensorboard" ^
     --resolution=96 ^
     --style_image_size=96 ^
